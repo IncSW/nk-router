@@ -1,0 +1,32 @@
+{
+    "name": "nk-router",
+    "version": "0.0.1",
+    "description": "NamiKoi url router",
+    "main": "./lib",
+    "author": "Aleksey Prokopenko <aleksey@incsw.in> (http://incsw.in)",
+    "homepage": "https://github.com/IncSW/nk-router",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/IncSW/nk-router.git"
+    },
+    "bugs": {
+        "url": "https://github.com/IncSW/nk-router/issues"
+    },
+    "readmeFilename": "README.md",
+    "license": "MIT",
+    "keywords": [
+        "router",
+        "route",
+        "routing",
+        "namikoi",
+        "namikoi-router"
+    ],
+    "engines" : {
+        "iojs" : ">= 2.0.0"
+    },
+    "files": [
+        "LICENSE",
+        "README.md",
+        "lib"
+    ]
+}
