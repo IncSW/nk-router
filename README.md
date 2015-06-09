@@ -1,6 +1,14 @@
 # nk-router
 NamiKoi url router
 
+[![NPM](https://nodei.co/npm/nk-router.png)](https://nodei.co/npm/nk-router)
+
+## Installation
+
+```bash
+$ npm install nk-router
+```
+
 ## Usage
 [Examples](https://github.com/IncSW/nk-router/blob/master/example)
 
