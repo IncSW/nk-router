@@ -8,8 +8,6 @@ router.add('base', nkRouter.route('GET', '/', function(request, response, data) 
     response.end('base');
 })).add('with-parameter', nkRouter.route('GET', '/with-parameter/:parameter', function(request, response, data) {
     response.end('with-parameter: ' + data.get('parameter'));
-})).add('with-integer-parameter', nkRouter.route('GET', '/with-integer-parameter/:intParameter:integer', function(request, response, data) {
-    response.end('with-integer-parameter: ' + data.get('intParameter'));
 }));
 
 http.createServer(function(request, response) {
