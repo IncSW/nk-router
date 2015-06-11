@@ -1,6 +1,6 @@
 {
     "name": "nk-router",
-    "version": "0.0.3",
+    "version": "0.1.0",
     "description": "NamiKoi url router",
     "main": "./lib",
     "author": "Aleksey Prokopenko <aleksey@incsw.in> (http://incsw.in)",
@@ -24,9 +24,17 @@
     "engines" : {
         "iojs" : ">= 2.0.0"
     },
+    "devDependencies": {
+        "mocha": "*"
+    },
+    "scripts": {
+        "test": "mocha test"
+    },
     "files": [
+        "lib",
+        "test",
+        "examples",
         "LICENSE",
-        "README.md",
-        "lib"
+        "README.md"
     ]
 }
