@@ -55,7 +55,9 @@ http.createServer(function(request, response) {
 }).listen(8888);
 ```
 
-#### Build
+
+
+## Build
 ```bash
 $ babel src --out-dir lib
 ```
