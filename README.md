@@ -94,6 +94,16 @@ A list of the supported HTTP methods.
 * path `String`
 * handler `Function`
 
+Parameters sets with `:` before name.
+```
+/post/:id
+```
+Parameters can have modifiers: `string` (default), `integer`, `float`.
+```
+/post/:id:integer
+/post/:id:integer/:title
+```
+
 ##### route.match(method, url)
 * method `String`
 * url `String`
