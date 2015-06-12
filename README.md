@@ -12,6 +12,25 @@ $ npm install nk-router
 
 
 
+## Build from src
+```bash
+$ npm install babel -g
+$ babel src --out-dir lib
+```
+
+
+
+## Test
+```bash
+$ npm install mocha -g
+$ mocha test
+```
+```bash
+$ npm run test
+```
+
+
+
 ## Usage
 [Examples](https://github.com/IncSW/nk-router/blob/master/examples)
 
@@ -53,13 +72,6 @@ http.createServer(function(request, response) {
     }
     matched.route.handler(request, response, matched.data);
 }).listen(8888);
-```
-
-
-
-## Build
-```bash
-$ babel src --out-dir lib
 ```
 
 
