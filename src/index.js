@@ -8,15 +8,15 @@ module.exports = {
     Router: Router,
     Route: Route,
     methods: methods,
-
+    
     /**
      * 
      * @return {Router}
      */
-    router: function router() {
+    router: function() {
         return new Router();
     },
-
+    
     /**
      * 
      * @param {String} method
@@ -24,7 +24,7 @@ module.exports = {
      * @param {Function} handler
      * @return {Route}
      */
-    route: function route(method, path, handler) {
+    route: function(method, path, handler) {
         return new Route(method, path, handler);
     }
 };
