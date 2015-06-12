@@ -17,6 +17,9 @@ $ npm install nk-router
 $ npm install babel -g
 $ babel src --out-dir lib
 ```
+```bash
+$ npm run build
+```
 
 
 
@@ -27,6 +30,13 @@ $ mocha test
 ```
 ```bash
 $ npm run test
+```
+
+
+
+## Benchmark
+```bash
+$ npm run bench
 ```
 
 
@@ -111,8 +121,8 @@ Parameters can have modifiers: `string` (default), `integer`, `float`.
 Checking if method and url matched.
 Returns [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) of parameters if matched or `null`.
 
-##### route.getUrl(parameters)
-* parameters [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) | `null`
+##### route.getUrl([parameters])
+* parameters `Object`
 
 Generating url from route.
 Returns url `String` if all parameters are set or `null`.
@@ -142,8 +152,8 @@ Returns [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referenc
 
 Calling `router.match` with parameters from `http.ClientRequest`.
 
-##### router.getUrl(key, parameters)
-* parameters [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) | `null`
+##### router.getUrl(key [, parameters])
+* parameters `Object`
 
 Finding `nkRouter.Route` by unique key and getting url from it.
 Returns url `String` if found or `null`.

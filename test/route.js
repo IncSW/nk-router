@@ -45,7 +45,10 @@ describe('Route', function() {
         var route = new Route('POST', '/post/:id/:status:integer', function() {});
         
         it('should return string when all parameters are set', function() {
-            assert.strictEqual('/post/1/2', route.getUrl(new Map([['id', 1], ['status', 2]])));
+            assert.strictEqual('/post/1/2', route.getUrl({
+                id: 1,
+                status: 2
+            }));
         });
         it('should return null when not all parameters are set', function() {
             assert.strictEqual(null, route.getUrl());

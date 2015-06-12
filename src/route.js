@@ -1,8 +1,8 @@
 'use strict';
 
 var methods = require('./methods'),
-    modifiers = require('./modifiers'),
-    expression = new RegExp('(?!/):([A-Za-z]+)(?::(' + modifiers.keys.join('|') + '))?(?=/|$)', 'g');
+    {list: modifiers, base: baseModifier} = require('./modifiers'),
+    expression = new RegExp('(?!/):([A-Za-z]+)(?::(' + Object.keys(modifiers).join('|') + '))?(?=/|$)', 'g');
 
 class Route {
     
@@ -30,13 +30,13 @@ class Route {
         this.path = path;
         this.params = [];
         this.pattern = new RegExp('^' + path.replace(expression, function(pattern, name, modifier) {
-            modifier = modifiers.list.has(modifier) ? modifier : modifiers.base;
+            modifier = modifiers[modifier] ? modifier : baseModifier;
             self.params.push({
                 name: name,
                 pattern: pattern,
                 modifier: modifier
             });
-            return '(' + modifiers.list.get(modifier).format + ')';
+            return '(' + modifiers[modifier].format + ')';
         }) + '$');
     }
     
@@ -64,28 +64,39 @@ class Route {
         data = new Map();
         i = matches.length;
         while (i--) {
-           data.set(this.params[i].name, modifiers.list.get(this.params[i].modifier).typecast(matches[i]));
+           data.set(this.params[i].name, modifiers[this.params[i].modifier].typecast(matches[i]));
         }
         return data;
     }
     
     /**
      * 
-     * @param {Map} parameters
+     * @param {Object} parameters
      * @return {String|null}
      */
     getUrl(parameters) {
-        if (parameters && !(parameters instanceof Map)) {
-            throw new Error('parameters must be a map or undefined');
-        }
         var i = this.params.length,
             url = this.path;
         
+        // parameters as Map is depricated
+        if (parameters instanceof Map) {
+            !function() {
+                var temp = Object.create(null),
+                    key;
+                
+                for (key of parameters.keys()) {
+                    temp[key] = parameters.get(key);
+                }
+                parameters = temp;
+            }();
+        }
+        
+        parameters = parameters || {};
         while (i--) {
-            if (!parameters || !parameters.has(this.params[i].name)) {
+            if (!parameters || !parameters[this.params[i].name]) {
                 return null;
             }
-            url = url.replace(this.params[i].pattern, parameters.get(this.params[i].name));
+            url = url.replace(this.params[i].pattern, parameters[this.params[i].name]);
         }
         return url;
     }

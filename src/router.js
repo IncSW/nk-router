@@ -5,7 +5,7 @@ var url = require('url');
 class Router {
     
     constructor() {
-        this.routes = new Map();
+        this.routes = Object.create(null);
     }
     
     /**
@@ -16,10 +16,10 @@ class Router {
      * @throws Will throw when duplicate key
      */
     add(key, route) {
-        if (this.routes.has(key)) {
+        if (this.routes[key]) {
             throw new Error('route key "' + key + '" already exists');
         }
-        this.routes.set(key, route);
+        this.routes[key] = route;
         return this;
     }
     
@@ -34,8 +34,8 @@ class Router {
             data,
             key;
         
-        for (key of this.routes.keys()) {
-            route = this.routes.get(key);
+        for (key in this.routes) {
+            route = this.routes[key];
             data = route.match(method, url);
             if (data !== null) {
                 return {
@@ -62,16 +62,16 @@ class Router {
      * @return {Route|null}
      */
     route(key) {
-        if (typeof key !== 'string' || !this.routes.has(key)) {
+        if (typeof key !== 'string' || !this.routes[key]) {
             return null;
         }
-        return this.routes.get(key);
+        return this.routes[key];
     }
     
     /**
      * 
      * @param {String} key
-     * @param {Map} parameters
+     * @param {Object} parameters
      * @return {String|null}
      */
     getUrl(key, parameters) {

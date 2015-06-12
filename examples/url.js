@@ -8,8 +8,8 @@ route = nkRouter.route('GET', '/with-parameter/:parameter', function() {});
 router.add('with-parameter', route);
 
 console.log(
-    route.getUrl(new Map([['parameter', 'foobar']]))
+    route.getUrl({parameter: 'foobar'})
 );
 console.log(
-    router.getUrl('with-parameter', new Map([['parameter', 'foobar']]))
+    router.getUrl('with-parameter', {parameter: 'foobar'})
 );
