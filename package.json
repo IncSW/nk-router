@@ -1,6 +1,6 @@
 {
     "name": "nk-router",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "NamiKoi url router",
     "main": "./lib",
     "author": "Aleksey Prokopenko <aleksey@incsw.in> (http://incsw.in)",
