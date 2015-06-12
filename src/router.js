@@ -71,16 +71,16 @@ class Router {
     /**
      * 
      * @param {String} key
-     * @param {Map} data
+     * @param {Map} parameters
      * @return {String|null}
      */
-    getUrl(key, data) {
+    getUrl(key, parameters) {
         var route = this.route(key);
         
         if (route === null) {
             return null;
         }
-        return route.getUrl(data);
+        return route.getUrl(parameters);
     }
 }
 

@@ -1,6 +1,6 @@
 'use strict';
 
-var nkRouter = require('../lib'),
+var nkRouter = require('nk-router'),
     router = nkRouter.router(),
     matched;
 

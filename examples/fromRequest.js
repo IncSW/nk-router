@@ -1,7 +1,7 @@
 'use strict';
 
 var http = require('http'),
-    nkRouter = require('../lib'),
+    nkRouter = require('nk-router'),
     router = nkRouter.router();
 
 router.add('base', nkRouter.route('GET', '/', function(request, response, data) {
