@@ -122,7 +122,7 @@ Checking if method and url matched.
 Returns [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) of parameters if matched or `null`.
 
 ##### route.getUrl([parameters])
-* parameters `Object`
+* parameters `Object` // `Map` is depricated
 
 Generating url from route.
 Returns url `String` if all parameters are set or `null`.
@@ -153,7 +153,7 @@ Returns [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referenc
 Calling `router.match` with parameters from `http.ClientRequest`.
 
 ##### router.getUrl(key [, parameters])
-* parameters `Object`
+* parameters `Object` // `Map` is depricated
 
 Finding `nkRouter.Route` by unique key and getting url from it.
 Returns url `String` if found or `null`.
