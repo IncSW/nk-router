@@ -14,22 +14,24 @@ $ npm install nk-router
 
 ## Build from src
 ```bash
+$ npm run build
+```
+or
+```bash
 $ npm install babel -g
 $ babel src --out-dir lib
-```
-```bash
-$ npm run build
 ```
 
 
 
 ## Test
 ```bash
+$ npm run test
+```
+or
+```bash
 $ npm install mocha -g
 $ mocha test
-```
-```bash
-$ npm run test
 ```
 
 
