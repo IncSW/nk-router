@@ -39,7 +39,6 @@
         "lib",
         "test",
         "benchmark",
-        "examples",
         "LICENSE",
         "README.md"
     ]

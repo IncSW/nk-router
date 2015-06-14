@@ -3,16 +3,34 @@ var Benchmark = require('benchmark'),
     suite = new Benchmark.Suite,
     router = nkRouter.router();
     
-router.add('base', nkRouter.route('GET', '/', function() {}));
-router.add('with-parameter', nkRouter.route('GET', '/with-parameter/:id', function() {}));
-router.add('with-integer-parameter', nkRouter.route('GET', '/with-integer-parameter/:id:integer', function() {}));
+router.add('main', nkRouter.route('GET', '/', function() {}));
+router.add('all', nkRouter.route('GET', '/all', function() {}));
+router.add('search', nkRouter.route('GET', '/search', function() {}));
+router.add('hub', nkRouter.route('GET', '/hub/:name', function() {}));
+router.add('post', nkRouter.route('GET', '/post/:id:integer', function() {}));
+router.add('user', nkRouter.route('GET', '/users/:name', function() {}));
 
-suite.add('base', function() {
+console.log(`Routes:
+main   GET /
+all    GET /all
+search GET /search
+hub    GET /hub/:name
+post   GET /post/:id:integer
+user   GET /users/:name
+`);
+
+suite.add('main', function() {
     router.match('GET', '/');
-}).add('with-parameter', function() {
-    router.match('GET', '/with-parameter/parameter');
-}).add('with-integer-parameter', function() {
-    router.match('GET', '/with-integer-parameter/123');
+}).add('all', function() {
+    router.match('GET', '/all');
+}).add('search', function() {
+    router.match('GET', '/search');
+}).add('hub', function() {
+    router.match('GET', '/hub/programming');
+}).add('post', function() {
+    router.match('GET', '/post/260227');
+}).add('user', function() {
+    router.match('GET', '/users/IncorrecTSW');
 }).on('cycle', function(event) {
     console.log(String(event.target));
 }).run({'async': false});

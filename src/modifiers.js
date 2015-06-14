@@ -1,10 +1,11 @@
 'use strict';
 
-var modifiers = Object.create(null);
+//Object.create(null)
+var modifiers = new Map();
 
 modifiers['string'] = {
     typecast: function(value) {
-        return value + '';
+        return value;
     },
     format: '[^\/]+'
 };

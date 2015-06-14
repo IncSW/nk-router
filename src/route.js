@@ -28,16 +28,17 @@ class Route {
         this.handler = handler;
         this.method = method;
         this.path = path;
-        this.params = [];
+        this.parameters = [];
         this.pattern = new RegExp('^' + path.replace(expression, function(pattern, name, modifier) {
             modifier = modifiers[modifier] ? modifier : baseModifier;
-            self.params.push({
+            self.parameters.push({
                 name: name,
                 pattern: pattern,
                 modifier: modifier
             });
             return '(' + modifiers[modifier].format + ')';
         }) + '$');
+        this.hasParameters = !!this.parameters.length;
     }
     
     /**
@@ -53,6 +54,9 @@ class Route {
         if (typeof url !== 'string') {
             throw new Error('url must be a string');
         }
+        if (!this.hasParameters) {
+            return this.path === url ? new Map() : null;
+        }
         var matches = url.match(this.pattern),
             data,
             i;
@@ -64,7 +68,7 @@ class Route {
         data = new Map();
         i = matches.length;
         while (i--) {
-           data.set(this.params[i].name, modifiers[this.params[i].modifier].typecast(matches[i]));
+           data.set(this.parameters[i].name, modifiers[this.parameters[i].modifier].typecast(matches[i]));
         }
         return data;
     }
@@ -75,7 +79,10 @@ class Route {
      * @return {String|null}
      */
     getUrl(parameters) {
-        var i = this.params.length,
+        if (!this.hasParameters) {
+            return this.path;
+        }
+        var i = this.parameters.length,
             url = this.path;
         
         // parameters as Map is depricated
@@ -93,10 +100,10 @@ class Route {
         
         parameters = parameters || {};
         while (i--) {
-            if (!parameters || !parameters[this.params[i].name]) {
+            if (!parameters || !parameters[this.parameters[i].name]) {
                 return null;
             }
-            url = url.replace(this.params[i].pattern, parameters[this.params[i].name]);
+            url = url.replace(this.parameters[i].pattern, parameters[this.parameters[i].name]);
         }
         return url;
     }
