@@ -10,14 +10,14 @@ router.add('hub', nkRouter.route('GET', '/hub/:name', function() {}));
 router.add('post', nkRouter.route('GET', '/post/:id:integer', function() {}));
 router.add('user', nkRouter.route('GET', '/users/:name', function() {}));
 
-console.log(`Routes:
-main   GET /
-all    GET /all
-search GET /search
-hub    GET /hub/:name
-post   GET /post/:id:integer
-user   GET /users/:name
-`);
+console.log('Routes:\n\
+main   GET /\n\
+all    GET /all\n\
+search GET /search\n\
+hub    GET /hub/:name\n\
+post   GET /post/:id:integer\n\
+user   GET /users/:name\n\
+');
 
 suite.add('main', function() {
     router.match('GET', '/');

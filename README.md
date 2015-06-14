@@ -3,9 +3,8 @@ NamiKoi url router
 
 [![NPM](https://nodei.co/npm/nk-router.png)](https://nodei.co/npm/nk-router)
 
-[![Build Status](https://travis-ci.org/IncSW/nk-router.svg?branch=master)](https://travis-ci.org/IncSW/nk-router)
-[![Code Climate](https://codeclimate.com/github/IncSW/nk-router/badges/gpa.svg)](https://codeclimate.com/github/IncSW/nk-router)
-[![Test Coverage](https://codeclimate.com/github/IncSW/nk-router/badges/coverage.svg)](https://codeclimate.com/github/IncSW/nk-router/coverage)
+[![Build Status](https://img.shields.io/travis/IncSW/nk-router/master.svg?style=flat-square)](https://travis-ci.org/IncSW/nk-router)
+[![Code Climate](https://img.shields.io/codeclimate/github/IncSW/nk-router.svg?style=flat-square)](https://codeclimate.com/github/IncSW/nk-router)
 
 
 
@@ -30,7 +29,7 @@ $ babel src --out-dir lib
 
 ## Test
 ```bash
-$ npm run test
+$ npm test
 ```
 or
 ```bash
