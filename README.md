@@ -3,6 +3,10 @@ NamiKoi url router
 
 [![NPM](https://nodei.co/npm/nk-router.png)](https://nodei.co/npm/nk-router)
 
+[![Build Status](https://travis-ci.org/IncSW/nk-router.svg?branch=master)](https://travis-ci.org/IncSW/nk-router)
+[![Code Climate](https://codeclimate.com/github/IncSW/nk-router/badges/gpa.svg)](https://codeclimate.com/github/IncSW/nk-router)
+[![Test Coverage](https://codeclimate.com/github/IncSW/nk-router/badges/coverage.svg)](https://codeclimate.com/github/IncSW/nk-router/coverage)
+
 
 
 ## Installation
