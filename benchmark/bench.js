@@ -1,6 +1,6 @@
 var Benchmark = require('benchmark'),
     nkRouter = require('../lib'),
-    suite = new Benchmark.Suite,
+    suite = new Benchmark.Suite(),
     router = nkRouter.router();
     
 router.add('main', nkRouter.route('GET', '/', function() {}));
@@ -33,4 +33,6 @@ suite.add('main', function() {
     router.match('GET', '/users/IncorrecTSW');
 }).on('cycle', function(event) {
     console.log(String(event.target));
-}).run({'async': false});
+}).run({
+    async: false
+});

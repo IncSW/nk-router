@@ -87,15 +87,13 @@ class Route {
         
         // parameters as Map is depricated
         if (parameters instanceof Map) {
-            !function() {
-                var temp = Object.create(null),
-                    key;
-                
-                for (key of parameters.keys()) {
-                    temp[key] = parameters.get(key);
-                }
-                parameters = temp;
-            }();
+            var temp = Object.create(null),
+                key;
+            
+            for (key of parameters.keys()) {
+                temp[key] = parameters.get(key);
+            }
+            parameters = temp;
         }
         
         parameters = parameters || {};

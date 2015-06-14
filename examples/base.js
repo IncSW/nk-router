@@ -4,7 +4,7 @@ var nkRouter = require('nk-router'),
     router = nkRouter.router(),
     matched;
 
-router.add('base', nkRouter.route('GET', '/', function(data) {
+router.add('base', nkRouter.route('GET', '/', function() {
     console.log('base');
 })).add('with-parameter', nkRouter.route('GET', '/with-parameter/:parameter', function(data) {
     console.log('with-parameter:', data.get('parameter'));

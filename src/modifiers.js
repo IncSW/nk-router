@@ -3,25 +3,25 @@
 //Object.create(null)
 var modifiers = new Map();
 
-modifiers['string'] = {
+modifiers.string = {
     typecast: function(value) {
         return value;
     },
     format: '[^\/]+'
 };
 
-modifiers['integer'] = {
+modifiers.integer = {
     typecast: function(value) {
         return parseInt(value);
     },
     format: '[0-9]+'
 };
 
-modifiers['float'] = {
+modifiers.float = {
     typecast: function(value) {
         return parseFloat(value);
     },
-    format: '[0-9]+\.?[0-9]*'
+    format: '[-+]?[0-9]*\.?[0-9]+'
 };
 
 module.exports = {
