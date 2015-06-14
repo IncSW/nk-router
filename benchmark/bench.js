@@ -2,23 +2,27 @@ var Benchmark = require('benchmark'),
     nkRouter = require('../lib'),
     suite = new Benchmark.Suite(),
     router = nkRouter.router();
-    
+
+console.log('Routes:');
+console.log('main   GET /');
 router.add('main', nkRouter.route('GET', '/', function() {}));
+
+console.log('all    GET /all');
 router.add('all', nkRouter.route('GET', '/all', function() {}));
+
+console.log('search GET /search');
 router.add('search', nkRouter.route('GET', '/search', function() {}));
+
+console.log('hub    GET /hub/:name');
 router.add('hub', nkRouter.route('GET', '/hub/:name', function() {}));
+
+console.log('post   GET /post/:id:integer');
 router.add('post', nkRouter.route('GET', '/post/:id:integer', function() {}));
+
+console.log('user   GET /users/:name');
 router.add('user', nkRouter.route('GET', '/users/:name', function() {}));
 
-console.log('Routes:\n\
-main   GET /\n\
-all    GET /all\n\
-search GET /search\n\
-hub    GET /hub/:name\n\
-post   GET /post/:id:integer\n\
-user   GET /users/:name\n\
-');
-
+console.log('\nBenchmarks:');
 suite.add('main', function() {
     router.match('GET', '/');
 }).add('all', function() {
